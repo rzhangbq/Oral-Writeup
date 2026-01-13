@@ -1,0 +1,297 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Oral Exam Write-up Template
+% LaTeX Template
+% Version 1.0
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Marion Lachaise & François Févotte
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage[margin=1cm, bottom=2cm]{geometry}
+
+% \input{structure.tex} % Include the file specifying the document structure and custom commands
+
+\usepackage{indentfirst}\setlength{\parindent}{0em}
+\usepackage{listings}
+\usepackage{inconsolata} % Better monospace font
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    commentstyle=\color{green!60!black},
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    columns=fullflexible,
+    breaklines=true,
+    showstringspaces=false,
+}
+
+\usepackage{amsmath,amsfonts,stmaryrd,amssymb} % Math packages
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% add linking w/ blue color
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Oral Exam Write-up},
+    pdfpagemode=FullScreen
+    }
+    
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\title{Oral Exam Write-up}
+\author{Rushan Zhang\thanks{AI has been involved in this write-up.}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Computational Artifact I: Structure-Preserving Transfer of Grad-Shafranov Equilibria to Magnetohydrodynamic Solvers}
+\subsection{Description}
+Magnetohydrodynamic (MHD) simulations of magnetically confined plasmas require initial conditions that satisfy force balance, typically obtained from equilibria computed by Grad–Shafranov (GS) solvers. However, transferring these equilibria to MHD discretizations can introduce numerical errors that disturb the equilibrium. This work identifies and analyzes key error sources within finite element frameworks, focusing on the preservation of force balance and the divergence-free property of the magnetic field. We show that errors primarily arise from (1) incompatible finite element spaces between GS and MHD solvers, (2) mesh misalignment, and (3) under-resolved gradients near the separatrix. Using numerical experiments, we demonstrate that equilibria are best preserved when structure-preserving finite element spaces are employed, meshes are aligned and refined, and magnetic fields are projected into div-conforming spaces to maintain force balance. Projection into curl-conforming spaces, while less optimal for force balance, provides weak preservation of the divergence-free condition.
+
+\subsection{Governing Equations}
+
+Assuming axisymmetry in a tokamak, the magnetic field $\mathbf{B}$ is represented in terms of the poloidal flux function $\psi(r,z)$ and the toroidal field function $f(\psi)$ as
+\begin{equation}
+    \mathbf{B} = \nabla \times \left( \frac{\psi}{r}\,\mathbf{e}_\phi \right) + \frac{f(\psi)}{r}\,\mathbf{e}_\phi ,
+\end{equation}
+with poloidal and toroidal components
+\begin{equation}
+    \mathbf{B}_p = \frac{1}{r}\nabla \psi \times \mathbf{e}_\phi,
+    \qquad
+    B_\phi = \frac{f(\psi)}{r}.
+\end{equation}
+
+Under magnetohydrodynamic equilibrium, force balance requires
+\begin{equation}
+    \mathbf{J} \times \mathbf{B} = \nabla p,
+\end{equation}
+and MHD approximation yields
+\begin{equation}
+    \mathbf{J} = \nabla \times \mathbf{B},
+\end{equation}
+where pressure gradient $\nabla p$ is set to 0 during the GS solve. Thus we have
+\begin{equation}
+    \mathbf{J}_p = \frac{1}{r}\nabla^\perp(r B_t)
+    \qquad
+    \mathbf{J}_t = -\nabla^\perp \cdot \mathbf{B}_p,
+\end{equation}
+and we should see
+\begin{equation}
+    [\mathbf{B} \times \mathbf{J}]_p = 0
+    \qquad
+    [\mathbf{B} \times \mathbf{J}]_t = 0
+\end{equation}
+
+Besides, we should also ensure that the magnetic field is divergence-free, i.e.
+\begin{equation}
+    \nabla \cdot \mathbf{B} = 0.
+\end{equation}
+Since the $B_t$ divergence-free is trivially satisfied, we compute the divergence of the poloidal component of the magnetic field. We define the divergence $D_b$ in the poloidal cross-section as
+\begin{equation}
+    D_b = \frac{1}{r} \nabla \cdot {r\mathbf{B}_p}.
+\end{equation}
+
+In this computational task, we will compute first compute $\mathbf{B}_p$ and $B_t$ from $\psi$ and $f$, then compute $\mathbf{J}_p$ and $\mathbf{J}_t$ from $\mathbf{B}_p$ and $B_t$. For verification, we will compute $D_b$, $[\mathbf{B} \times \mathbf{J}]_p$ and $[\mathbf{B} \times \mathbf{J}]_t$ and verify whether they are close to $0$.
+
+\subsection{Implementation}
+
+The implementation of $\mathbf{B}_p$ and $B_t$ from $\psi$ and $f$ is described in the following, while the implementation of rest of the fields are omitted for brevity. Their discrete realization depends on the choice of finite element spaces.
+
+\paragraph{Poloidal magnetic field $\mathbf{B}_p$.}
+If $\Psi$ is a CG field, then according to the 2D de-Rham complex in the $(r,z)$-plane, $\mathbf{B}_p$ should be divergence-conforming and computed weakly as
+\begin{equation}
+    \langle \mathbf{w}, r \mathbf{B}_p - \nabla^\perp \Psi \rangle = 0, \qquad \forall \mathbf{w} \in H(\text{div}, \mathcal{T}_{2D})_m,
+\end{equation}
+since $\nabla^\perp \Psi \in H(\text{div}, \mathcal{T}_{2D})_m$. Here, $\langle \cdot, \cdot \rangle$ denotes the $L^2$-inner product. Note that the derivation of $\mathbf{B}_p$ only holds weakly due to the additional factor of $r$ arising from the Jacobian in cylindrical coordinates. In contrast, if $\Psi$ is a DG field, then in an analogous argument, $\mathbf{B}_p$ should be curl-conforming, and computed weakly as
+\begin{equation}
+    \langle \mathbf{\Sigma}, r \mathbf{B}_p \rangle +  \langle \nabla^\perp \cdot \mathbf{\Sigma}, \Psi \rangle - \int_{\partial \mathcal{T}_{2D}}  \Psi (\mathbf{\Sigma} \cdot \mathbf{n}^\perp) \, dS = 0, \qquad \forall \mathbf{\Sigma} \in H(\text{curl}, \mathcal{T}_{2D})_m,
+\end{equation}
+where we used integration by parts. Here, we note that finite element-based GS solvers typically do not return $\Psi$ as a DG field. However, in this case we may still compute $\mathbf{B}_p$ in the $H(\text{curl}, \mathcal{T}_{2D})_m$ space in this way. The pairing of $\Psi$ with the DG field $\nabla^\perp \cdot \mathbf{\Sigma}$ (noting the 2D planar de-Rham complex) then implicitly corresponds to projecting $\Psi$ into the DG space. For comparison, we also consider a vector-CG discretization, where
+$\mathbf{B}_p \in CG(T_{2D})_m^2$ is computed as
+\begin{equation}
+\langle \mathbf{v},\, r \mathbf{B}_p - \nabla^\perp \psi \rangle = 0,
+\qquad
+\forall \mathbf{v} \in CG(T_{2D})_m^2 .
+\end{equation}
+
+\paragraph{Toroidal magnetic field $B_t$.}
+If $f \in CG(T_{2D})_m$, then $B_t$ is naturally represented in the same space and computed as
+\begin{equation}
+\langle \eta,\, r B_t - f \rangle = 0,
+\qquad
+\forall \eta \in CG(T_{2D})_m .
+\end{equation}
+If instead $f$ is treated as a DG field, $B_t$ is computed in a DG space via
+\begin{equation}
+\langle \phi,\, r B_t - f \rangle = 0,
+\qquad
+\forall \phi \in DG(T_{2D})_{m-1} .
+\end{equation}
+
+Note that $m$ in the above equations is the polynomial degree of the finite element space. In practice, the degree may, for example, be set according to the position of the $\Psi$-finite element space within the de-Rham complex. For instance, if $\Psi \in CG(\mathcal{T}_{2D})_k$, then we would consider a divergence-conforming poloidal magnetic field $\mathbf{B}_p$ set in $H(\text{div}, \mathcal{T}_{2D})_k$ (assuming Raviart-Thomas spaces). If $\Psi \in DG(\mathcal{T}_{2D})_k$, then we would instead consider a curl-conforming field $\mathbf{B}_p$ set in $H(\text{curl}, \mathcal{T}_{2D})_{k+1}$.
+
+\subsubsection{Experiment setup}
+
+First we look into incompatibility of finite element spaces between GS and MHD solvers. Based on the above discussion, we implement the following three projection paths.
+\begin{align}
+    \begin{split}
+         & \Psi \in CG(\mathcal{T}_{2D})_m \;\;\; \rightarrow \;\;\; \mathbf{B}_p \in H(\text{div}, \mathcal{T}_{2D})_m\;\;\; \rightarrow \;\;\; J_t \in CG(\mathcal{T}_{2D})_{m}, \\
+         & f \in CG(\mathcal{T}_{2D})_m \;\;\; \rightarrow \;\;\; B_t \in DG(\mathcal{T}_{2D})_{m-1}\;\;\; \rightarrow \;\;\; \mathbf{J}_p \in H(\text{curl}, \mathcal{T}_{2D})_m.
+        \label{eq:proj_path_A}
+    \end{split}
+\end{align}
+
+\begin{align}
+    \begin{split}
+         & \Psi \in CG(\mathcal{T}_{2D})_m \;\;\; \rightarrow \;\;\; \mathbf{B}_p \in H(\text{curl}, \mathcal{T}_{2D})_m\;\;\; \rightarrow \;\;\; J_t \in DG(\mathcal{T}_{2D})_{m-1}, \\
+         & f \in CG(\mathcal{T}_{2D})_m \;\;\; \rightarrow \;\;\; B_t \in CG(\mathcal{T}_{2D})_{m}\;\;\; \rightarrow\;\;\;\; \mathbf{J}_p \in H(\text{div}, \mathcal{T}_{2D})_m.
+        \label{eq:proj_path_B}
+    \end{split}
+\end{align}
+
+\begin{align}
+    \begin{split}
+         & \Psi \in CG(\mathcal{T}_{2D})_m \;\;\; \rightarrow \;\;\; \mathbf{B}_p \in CG(\mathcal{T}_{2D})_m^2\;\;\; \rightarrow \;\;\; J_t \in CG(\mathcal{T}_{2D})_{m}, \\
+         & f \in CG(\mathcal{T}_{2D})_m \;\;\; \rightarrow \;\;\; B_t \in CG(\mathcal{T}_{2D})_{m}\;\;\; \rightarrow\;\;\; \mathbf{J}_p \in CG(\mathcal{T}_{2D})_m^2.
+        \label{eq:proj_path_C}
+    \end{split}
+\end{align}
+
+Then we look into mesh misalignment. To do so, we conduct a perturbation on the original mesh and see how the errors propagate to the computed fields. The perturbation is given by
+\begin{equation}
+    r_i' = r_i + \alpha \, \sin(r_i) ,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,
+    z_i' = z_i + \alpha \, \sin(z_i).
+\end{equation}
+
+Finally, we look into under-resolved gradients near the separatrix. To do so, we refine the mesh near the separatrix and see if the errors are reduced.
+
+\subsection{Results}
+The results for different projection paths are shown in Figure \ref{fig:JxB_comparison} and Figure \ref{fig:div_B_pol_comparison}.
+\begin{figure}[!htbp]
+    \centering
+    \begin{tabular}{cccl}
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_pol_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_pol_B.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_pol_C.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_pol_colorbar.png}\\
+        $[\mathbf{B}\times\mathbf{J}]_p \in H(\text{div}, \mathcal{T}_{2D})_m$~\eqref{eq:proj_path_A} & $[\mathbf{B}\times\mathbf{J}]_p \in H(\text{curl}, \mathcal{T}_{2D})_m$~\eqref{eq:proj_path_B} & $[\mathbf{B}\times\mathbf{J}]_p \in CG(\mathcal{T}_{2D})_m^2$~\eqref{eq:proj_path_C} & \\
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_tor_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_tor_B.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_tor_C.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_tor_colorbar.png}\\
+        $[\mathbf{B}\times\mathbf{J}]_t \in CG(\mathcal{T}_{2D})_{m}$~\eqref{eq:proj_path_A} & $[\mathbf{B}\times\mathbf{J}]_t \in DG(\mathcal{T}_{2D})_{m-1}$~\eqref{eq:proj_path_B} & $[\mathbf{B}\times\mathbf{J}]_t \in CG(\mathcal{T}_{2D})_{m}$~\eqref{eq:proj_path_C} & \\
+    \end{tabular}
+    \caption{Comparison of the poloidal and toroidal components of the Lorentz force from different projection paths.}
+    \label{fig:JxB_comparison}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tabular}{cccl}
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/div_B_pol_Hdiv.png}   &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/div_B_pol_Hcurl.png}  &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/div_B_pol_vec_CG.png} &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/div_B_pol_colorbar.png}\\
+        $D_b \in DG(\mathcal{T}_{2D})_{m-1}$~\eqref{eq:proj_path_A}                      & $D_b \in CG(\mathcal{T}_{2D})_{m}$~\eqref{eq:proj_path_B} & $D_b \in CG(\mathcal{T}_{2D})_{m}$~\eqref{eq:proj_path_C} &
+    \end{tabular}
+    \caption{Comparison of the divergence of the poloidal component of the magnetic field ($D_b$) from different projection paths.}
+    \label{fig:div_B_pol_comparison}
+\end{figure}
+
+The results for mesh perturbation and refinement are shown in Figure \ref{fig:combined_comparison}.
+\begin{figure}[!htbp]
+    \centering
+    \begin{tabular}{cccl}
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_pol_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_unalign/JxB_pol_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align_refine/JxB_pol_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_unalign/JxB_pol_colorbar.png}\\
+        original & w/ perturbation & w/ refinement & \\
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align/JxB_tor_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_unalign/JxB_tor_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align_refine/JxB_tor_A.png}                        &
+        \includegraphics[height=0.28\textheight]{figs/GS_GS_align_refine/JxB_tor_colorbar.png}\\
+        original & w/ perturbation & w/ refinement & \\
+    \end{tabular}
+    \caption{Comparison of the poloidal and toroidal components of the Lorentz force from different projection paths.}
+    \label{fig:combined_comparison}
+\end{figure}
+\newpage
+\section{Computational Artifact II: Implementation of a Finite-Element-Based Particle-In-Cell Method}
+\subsection{Description}
+This work presents the implementation of a finite-element-based particle-in-cell method for solving the Vlasov-Poisson equation. The implementation adds a new \textbf{2D2V Particle-In-Cell (PIC) miniapp} to MFEM that demonstrates explicit particle pushing coupled to a finite-element Poisson solve for self-consistent electric fields on a periodic domain (pull request submitted). The implementation targets plasma physics use cases (e.g., linear Landau damping) and serves as a reference example for coupling MFEM's particle support and FEM-based parallel elliptic solvers. The miniapp features explicit leap-frog time integration, periodic 2D Cartesian mesh with charge-conserving particle deposition using Dirac delta shape functions, parallel particle redistribution across MPI ranks, and optional GLVis visualization for both $\phi$ and $\mathbf{E}$.
+
+\subsection{Governing Equations}
+The PIC method solves the Vlasov-Poisson system, where the electric potential $\phi$ is computed from Poisson's equation:
+\begin{equation}
+    -\epsilon_0 \Delta\phi(\mathbf{q}) = e \sum_{j=1}^{N_p} \psi_j \delta(\mathbf{q}-\mathbf{Q}_j) - e n_0,
+\end{equation}
+where the vacuum permittivity $\epsilon_0$ is set to 1, $e$ is the particle charge, the particle weight $\psi_j$ is currently set to 1, $\mathbf{Q}_j$ is the particle position, and $n_0$ is a constant neutralizing term that enforces global charge neutrality, ensuring that the right-hand side has zero mean and the periodic Poisson problem is well-posed. The electric field is then computed from the potential:
+\begin{equation}
+    \mathbf{E} = -\nabla \phi.
+\end{equation}
+
+\subsection{Implementation}
+The solution process per timestep (repeating steps 1--6) is as follows:
+\begin{enumerate}
+    \item Deposit charge from particles to grid via Dirac delta function to form the RHS of the Poisson equation
+    \item Solve Poisson equation to compute potential $\phi$. When solving the linear system of equations, zero-mean is enforced for periodic Poisson solves using \texttt{OrthoSolver}.
+    \item Compute electric field from the potential using $\mathbf{E} = -\nabla \phi$
+    \item Interpolate E-field to particle positions
+    \item Push particles using leap-frog scheme (update momentum and position)
+    \item Redistribute particles across processors
+\end{enumerate}
+
+\newpage
+\subsection{Results}
+The implementation has been tested with the linear Landau damping test case following the setup from \cite{ricketson2025explicit}. Two sample runs are shown below.
+
+The first run uses 4 MPI ranks with 102,400 particles per rank on a $32 \times 32$ grid. The simulation runs for 200 time steps with a time step size of $\Delta t = 0.1$. The perturbation wavenumber is set to $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and the perturbation amplitude is $a = 0.05$. The charge and mass parameters are both set to $0.001181640625$, and the polynomial order is 1. The results are shown in Figure \ref{fig:landau_small}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/LD-small.png}
+    \caption{Linear Landau damping results from the first run with 4 MPI ranks, 102,400 particles per rank, and a $32 \times 32$ grid.}
+    \label{fig:landau_small}
+\end{figure}
+
+The second run uses 256 MPI ranks with 20,000 particles per rank on a $64 \times 64$ grid. The simulation runs for 160,000 time steps with a smaller time step size of $\Delta t = 0.05$ for improved accuracy. The same perturbation wavenumber $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and perturbation amplitude $a = 0.05$ are used, with charge and mass parameters set to $0.00009453125$. Visualization is disabled for this longer run. The results are shown in Figure \ref{fig:landau_big}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/LD-big.png}
+    \caption{Linear Landau damping results from the second run with 256 MPI ranks, 20,000 particles per rank, and a $64 \times 64$ grid.}
+    \label{fig:landau_big}
+\end{figure}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+
