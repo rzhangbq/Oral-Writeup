@@ -21,7 +21,8 @@
 
 \documentclass{article}
 
-\usepackage[margin=1cm, bottom=2cm]{geometry}
+%avoiding being too tight or too loose with the text:
+\usepackage[paperheight=11in,paperwidth=8.5in,textwidth=6.5in,textheight=9in]{geometry}
 
 % \input{structure.tex} % Include the file specifying the document structure and custom commands
 
@@ -57,18 +58,24 @@
     pdftitle={Oral Exam Write-up},
     pdfpagemode=FullScreen
     }
+
+\newcommand{\QT}[1]{{\textcolor{red}{\footnotesize\sf[QT: #1]}}}
     
 
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 
-\title{Oral Exam Write-up}
+\title{Oral Exam: Structure-preserving Numerical Algorithms for Plasma Modeling}
 \author{Rushan Zhang\thanks{AI has been involved in this write-up.}}
 \date{\today}
 
 \begin{document}
 
 \maketitle
+
+\section*{Overview}
+In this Oral-Exam writeup, I am going to describe two computational artifacts that implement structure-preserving numerical algorithms. The first artifact concerns a structure-preserving transfer of Grad–Shafranov equilibrium solutions to magnetohydrodynamic solvers. We use compatible finite element spaces that implement a discrete two-dimensional de Rham complex, such that the force balance and the divergence-free property of the magnetic field are better preserved. The second artifact is a 2D2V particle-in-cell (PIC) code implemented using compatible finite elements. The electrostatic potential $\Phi$ and the electric field $\mathbf{E}$ also follow a two-dimensional de Rham complex. Together with the use of a symplectic integrator, specifically the leapfrog scheme, the overall computation preserves the symplectic structure.
+
 
 \section{Computational Artifact I: Structure-Preserving Transfer of Grad-Shafranov Equilibria to Magnetohydrodynamic Solvers}
 \subsection{Description}
@@ -186,13 +193,14 @@ First we look into incompatibility of finite element spaces between GS and MHD s
 Then we look into mesh misalignment. To do so, we conduct a perturbation on the original mesh and see how the errors propagate to the computed fields. The perturbation is given by
 \begin{equation}
     r_i' = r_i + \alpha \, \sin(r_i) ,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,
-    z_i' = z_i + \alpha \, \sin(z_i).
+    z_i' = z_i + \alpha \, \sin(z_i),
 \end{equation}
+where $\alpha$ is set to 0.05.
 
 Finally, we look into under-resolved gradients near the separatrix. To do so, we refine the mesh near the separatrix and see if the errors are reduced.
 
 \subsection{Results}
-The results for different projection paths are shown in Figure \ref{fig:JxB_comparison} and Figure \ref{fig:div_B_pol_comparison}.
+The results for different projection paths are shown in Figure \ref{fig:JxB_comparison} and Figure \ref{fig:div_B_pol_comparison}. It is noticeable that projection path~\eqref{eq:proj_path_A} better preserves force balancing and projection path~\eqref{eq:proj_path_B} better preserves the divergence-free property, while the naive vector CG space preserves neither.
 \begin{figure}[!htbp]
     \centering
     \begin{tabular}{cccl}
@@ -224,7 +232,8 @@ The results for different projection paths are shown in Figure \ref{fig:JxB_comp
     \label{fig:div_B_pol_comparison}
 \end{figure}
 
-The results for mesh perturbation and refinement are shown in Figure \ref{fig:combined_comparison}.
+The results for mesh perturbation and refinement are shown in Figure \ref{fig:combined_comparison}. We observe that even a small-amplitude sinusoidal perturbation of the mesh leads to significant numerical errors. Furthermore, mesh refinement noticeably reduces the error across the separatrix, confirming that inaccuracies in the shape gradient are a substantial source of error.
+
 \begin{figure}[!htbp]
     \centering
     \begin{tabular}{cccl}
@@ -242,6 +251,11 @@ The results for mesh perturbation and refinement are shown in Figure \ref{fig:co
     \caption{Comparison of the poloidal and toroidal components of the Lorentz force from different projection paths.}
     \label{fig:combined_comparison}
 \end{figure}
+
+\subsection{Conclusions}
+\QT{need to close it: cite your paper and your branch. Say that this work has been presented at the MFEM workshop.}
+
+
 \newpage
 \section{Computational Artifact II: Implementation of a Finite-Element-Based Particle-In-Cell Method}
 \subsection{Description}
@@ -268,11 +282,14 @@ The solution process per timestep (repeating steps 1--6) is as follows:
     \item Redistribute particles across processors
 \end{enumerate}
 
+\subsection{Symplectic PIC}
+\QT{discuss that this code is symplectic, briefly. You can use what I wrote but not everything.}
+
 \newpage
 \subsection{Results}
 The implementation has been tested with the linear Landau damping test case following the setup from \cite{ricketson2025explicit}. Two sample runs are shown below.
 
-The first run uses 4 MPI ranks with 102,400 particles per rank on a $32 \times 32$ grid. The simulation runs for 200 time steps with a time step size of $\Delta t = 0.1$. The perturbation wavenumber is set to $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and the perturbation amplitude is $a = 0.05$. The charge and mass parameters are both set to $0.001181640625$, and the polynomial order is 1. The results are shown in Figure \ref{fig:landau_small}.
+The first run uses 4 MPI ranks with 102,400 particles per rank on a $32 \times 32$ grid. The simulation runs for 200 time steps with a time step size of $\Delta t = 0.1$. The perturbation wavenumber is set to $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and the perturbation amplitude is $a = 0.05$. The charge and mass parameters are both set to $0.001181640625$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The result is shown in Figure \ref{fig:landau_small}.
 
 \begin{figure}[!htbp]
     \centering
@@ -281,7 +298,7 @@ The first run uses 4 MPI ranks with 102,400 particles per rank on a $32 \times 3
     \label{fig:landau_small}
 \end{figure}
 
-The second run uses 256 MPI ranks with 20,000 particles per rank on a $64 \times 64$ grid. The simulation runs for 160,000 time steps with a smaller time step size of $\Delta t = 0.05$ for improved accuracy. The same perturbation wavenumber $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and perturbation amplitude $a = 0.05$ are used, with charge and mass parameters set to $0.00009453125$. Visualization is disabled for this longer run. The results are shown in Figure \ref{fig:landau_big}.
+The second run uses 256 MPI ranks with 20,000 particles per rank on a $64 \times 64$ grid. The simulation runs for 160,000 time steps with a smaller time step size of $\Delta t = 0.05$ for improved accuracy. The same perturbation wavenumber $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and perturbation amplitude $a = 0.05$ are used, with charge and mass parameters set to $0.00009453125$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The result is shown in Figure \ref{fig:landau_big}.
 
 \begin{figure}[!htbp]
     \centering
@@ -289,6 +306,9 @@ The second run uses 256 MPI ranks with 20,000 particles per rank on a $64 \times
     \caption{Linear Landau damping results from the second run with 256 MPI ranks, 20,000 particles per rank, and a $64 \times 64$ grid.}
     \label{fig:landau_big}
 \end{figure}
+
+\subsection{Conclusions}
+\QT{again we need to close it: cite the repo, discuss the current capability, discuss what we want to do in the future with your code.}
 
 \bibliographystyle{plain}
 \bibliography{references}
