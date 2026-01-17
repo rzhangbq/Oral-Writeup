@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.31)  12 JAN 2026 17:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.31)  17 JAN 2026 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -306,7 +306,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip52
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 59.
+Package hyperref Info: Option `colorlinks' set `true' on input line 60.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
@@ -314,42 +314,42 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 ) (./oral_exam_template.aux)
 \openout1 = `oral_exam_template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: <default>
+* paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(28.45274pt, 557.38951pt, 28.45274pt)
-* v-part:(T,H,B)=(28.45274pt, 709.61174pt, 56.9055pt)
+* h-part:(L,W,R)=(72.27pt, 469.75499pt, 72.27pt)
+* v-part:(T,H,B)=(57.81598pt, 650.43pt, 86.72401pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=557.38951pt
-* \textheight=709.61174pt
-* \oddsidemargin=-43.81725pt
-* \evensidemargin=-43.81725pt
-* \topmargin=-80.81725pt
+* \textwidth=469.75499pt
+* \textheight=650.43pt
+* \oddsidemargin=0.00002pt
+* \evensidemargin=0.00002pt
+* \topmargin=-51.45401pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -392,7 +392,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 69.
+Package hyperref Info: Link coloring ON on input line 72.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
@@ -402,162 +402,210 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 69.
-LaTeX Info: Redefining \pageref on input line 69.
-LaTeX Info: Redefining \nameref on input line 69.
+LaTeX Info: Redefining \ref on input line 72.
+LaTeX Info: Redefining \pageref on input line 72.
+LaTeX Info: Redefining \nameref on input line 72.
  (./oral_exam_template.out) (./oral_exam_template.out)
 \@outlinefile=\write3
 \openout3 = `oral_exam_template.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 72.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
-
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<figs/GS_GS_align/JxB_pol_A.png, id=76, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_pol_A.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_pol_A.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_pol_A.png  used on input line 199.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/JxB_pol_B.png, id=77, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_pol_B.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_pol_B.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_pol_B.png  used on input line 200.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/JxB_pol_C.png, id=78, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_pol_C.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_pol_C.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_pol_C.png  used on input line 201.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/JxB_pol_colorbar.png, id=79, 381.425pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_pol_colorbar.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_pol_colorbar.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_pol_colorbar.png  used on input line 202.
-(pdftex.def)             Requested size: 53.92876pt x 198.69041pt.
-<figs/GS_GS_align/JxB_tor_A.png, id=83, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_tor_A.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_tor_A.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_tor_A.png  used on input line 204.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/JxB_tor_B.png, id=84, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_tor_B.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_tor_B.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_tor_B.png  used on input line 205.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/JxB_tor_C.png, id=85, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_tor_C.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_tor_C.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_tor_C.png  used on input line 206.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/JxB_tor_colorbar.png, id=86, 381.425pt x 1405.25pt>
-File: figs/GS_GS_align/JxB_tor_colorbar.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_tor_colorbar.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_tor_colorbar.png  used on input line 207.
-(pdftex.def)             Requested size: 53.92876pt x 198.69041pt.
-<figs/GS_GS_align/div_B_pol_Hdiv.png, id=90, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/div_B_pol_Hdiv.png Graphic file (type png)
-<use figs/GS_GS_align/div_B_pol_Hdiv.png>
-Package pdftex.def Info: figs/GS_GS_align/div_B_pol_Hdiv.png  used on input line 217.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/div_B_pol_Hcurl.png, id=91, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/div_B_pol_Hcurl.png Graphic file (type png)
-<use figs/GS_GS_align/div_B_pol_Hcurl.png>
-Package pdftex.def Info: figs/GS_GS_align/div_B_pol_Hcurl.png  used on input line 218.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/div_B_pol_vec_CG.png, id=92, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align/div_B_pol_vec_CG.png Graphic file (type png)
-<use figs/GS_GS_align/div_B_pol_vec_CG.png>
-Package pdftex.def Info: figs/GS_GS_align/div_B_pol_vec_CG.png  used on input line 219.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align/div_B_pol_colorbar.png, id=93, 381.425pt x 1405.25pt>
-File: figs/GS_GS_align/div_B_pol_colorbar.png Graphic file (type png)
-<use figs/GS_GS_align/div_B_pol_colorbar.png>
-Package pdftex.def Info: figs/GS_GS_align/div_B_pol_colorbar.png  used on input line 220.
-(pdftex.def)             Requested size: 53.92876pt x 198.69041pt.
-File: figs/GS_GS_align/JxB_pol_A.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_pol_A.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_pol_A.png  used on input line 231.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_unalign/JxB_pol_A.png, id=98, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_unalign/JxB_pol_A.png Graphic file (type png)
-<use figs/GS_GS_unalign/JxB_pol_A.png>
-Package pdftex.def Info: figs/GS_GS_unalign/JxB_pol_A.png  used on input line 232.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align_refine/JxB_pol_A.png, id=99, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align_refine/JxB_pol_A.png Graphic file (type png)
-<use figs/GS_GS_align_refine/JxB_pol_A.png>
-Package pdftex.def Info: figs/GS_GS_align_refine/JxB_pol_A.png  used on input line 233.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_unalign/JxB_pol_colorbar.png, id=100, 381.425pt x 1405.25pt>
-File: figs/GS_GS_unalign/JxB_pol_colorbar.png Graphic file (type png)
-<use figs/GS_GS_unalign/JxB_pol_colorbar.png>
-Package pdftex.def Info: figs/GS_GS_unalign/JxB_pol_colorbar.png  used on input line 234.
-(pdftex.def)             Requested size: 53.92876pt x 198.69041pt.
-File: figs/GS_GS_align/JxB_tor_A.png Graphic file (type png)
-<use figs/GS_GS_align/JxB_tor_A.png>
-Package pdftex.def Info: figs/GS_GS_align/JxB_tor_A.png  used on input line 236.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_unalign/JxB_tor_A.png, id=101, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_unalign/JxB_tor_A.png Graphic file (type png)
-<use figs/GS_GS_unalign/JxB_tor_A.png>
-Package pdftex.def Info: figs/GS_GS_unalign/JxB_tor_A.png  used on input line 237.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align_refine/JxB_tor_A.png, id=102, 1003.75pt x 1405.25pt>
-File: figs/GS_GS_align_refine/JxB_tor_A.png Graphic file (type png)
-<use figs/GS_GS_align_refine/JxB_tor_A.png>
-Package pdftex.def Info: figs/GS_GS_align_refine/JxB_tor_A.png  used on input line 238.
-(pdftex.def)             Requested size: 141.91779pt x 198.69041pt.
-<figs/GS_GS_align_refine/JxB_tor_colorbar.png, id=103, 381.425pt x 1405.25pt>
-File: figs/GS_GS_align_refine/JxB_tor_colorbar.png Graphic file (type png)
-<use figs/GS_GS_align_refine/JxB_tor_colorbar.png>
-Package pdftex.def Info: figs/GS_GS_align_refine/JxB_tor_colorbar.png  used on input line 239.
-(pdftex.def)             Requested size: 53.92876pt x 198.69041pt.
- [2] [3 <./figs/GS_GS_align/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_B.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_C.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_B.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_C.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_colorbar.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_Hdiv.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_Hcurl.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_vec_CG.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_colorbar.png (PNG copy)>] [4 <./figs/GS_GS_unalign/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_unalign/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_unalign/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_colorbar.png (PNG copy)>]
-Overfull \hbox (17.23312pt too wide) in paragraph at lines 246--246
-[]\OT1/cmr/bx/n/14.4 Computational Ar-ti-fact II: Im-ple-men-ta-tion of a Finite-Element-Based Particle-
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 75.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+Overfull \hbox (2.13939pt too wide) in paragraph at lines 77--78
+\OT1/cmr/m/n/10 preserving nu-mer-i-cal al-go-rithms. The first ar-ti-fact con-cerns a structure-preserving trans-fer of Grad{Shafranov
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 264.
+
+Overfull \hbox (10.28288pt too wide) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/14.4 Computational Ar-ti-fact I: Structure-Preserving Trans-fer of Grad-
+ []
+
+[1
+
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<figs/GS_GS_align/JxB_pol_A.png, id=102, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_pol_A.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_pol_A.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_pol_A.png  used on input line 207.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/JxB_pol_B.png, id=103, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_pol_B.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_pol_B.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_pol_B.png  used on input line 208.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/JxB_pol_C.png, id=104, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_pol_C.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_pol_C.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_pol_C.png  used on input line 209.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/JxB_pol_colorbar.png, id=105, 381.425pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_pol_colorbar.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_pol_colorbar.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_pol_colorbar.png  used on input line 210.
+(pdftex.def)             Requested size: 49.42984pt x 182.1196pt.
+<figs/GS_GS_align/JxB_tor_A.png, id=109, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_tor_A.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_tor_A.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_tor_A.png  used on input line 212.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/JxB_tor_B.png, id=110, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_tor_B.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_tor_B.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_tor_B.png  used on input line 213.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/JxB_tor_C.png, id=111, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_tor_C.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_tor_C.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_tor_C.png  used on input line 214.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/JxB_tor_colorbar.png, id=112, 381.425pt x 1405.25pt>
+File: figs/GS_GS_align/JxB_tor_colorbar.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_tor_colorbar.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_tor_colorbar.png  used on input line 215.
+(pdftex.def)             Requested size: 49.42984pt x 182.1196pt.
+
+Overfull \hbox (34.59047pt too wide) in paragraph at lines 206--218
+ [][] 
+ []
+
+<figs/GS_GS_align/div_B_pol_Hdiv.png, id=116, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/div_B_pol_Hdiv.png Graphic file (type png)
+<use figs/GS_GS_align/div_B_pol_Hdiv.png>
+Package pdftex.def Info: figs/GS_GS_align/div_B_pol_Hdiv.png  used on input line 225.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/div_B_pol_Hcurl.png, id=117, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/div_B_pol_Hcurl.png Graphic file (type png)
+<use figs/GS_GS_align/div_B_pol_Hcurl.png>
+Package pdftex.def Info: figs/GS_GS_align/div_B_pol_Hcurl.png  used on input line 226.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/div_B_pol_vec_CG.png, id=118, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align/div_B_pol_vec_CG.png Graphic file (type png)
+<use figs/GS_GS_align/div_B_pol_vec_CG.png>
+Package pdftex.def Info: figs/GS_GS_align/div_B_pol_vec_CG.png  used on input line 227.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align/div_B_pol_colorbar.png, id=119, 381.425pt x 1405.25pt>
+File: figs/GS_GS_align/div_B_pol_colorbar.png Graphic file (type png)
+<use figs/GS_GS_align/div_B_pol_colorbar.png>
+Package pdftex.def Info: figs/GS_GS_align/div_B_pol_colorbar.png  used on input line 228.
+(pdftex.def)             Requested size: 49.42984pt x 182.1196pt.
+
+Overfull \hbox (17.91057pt too wide) in paragraph at lines 224--231
+ [][] 
+ []
+
+File: figs/GS_GS_align/JxB_pol_A.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_pol_A.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_pol_A.png  used on input line 240.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_unalign/JxB_pol_A.png, id=124, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_unalign/JxB_pol_A.png Graphic file (type png)
+<use figs/GS_GS_unalign/JxB_pol_A.png>
+Package pdftex.def Info: figs/GS_GS_unalign/JxB_pol_A.png  used on input line 241.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align_refine/JxB_pol_A.png, id=125, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align_refine/JxB_pol_A.png Graphic file (type png)
+<use figs/GS_GS_align_refine/JxB_pol_A.png>
+Package pdftex.def Info: figs/GS_GS_align_refine/JxB_pol_A.png  used on input line 242.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_unalign/JxB_pol_colorbar.png, id=126, 381.425pt x 1405.25pt>
+File: figs/GS_GS_unalign/JxB_pol_colorbar.png Graphic file (type png)
+<use figs/GS_GS_unalign/JxB_pol_colorbar.png>
+Package pdftex.def Info: figs/GS_GS_unalign/JxB_pol_colorbar.png  used on input line 243.
+(pdftex.def)             Requested size: 49.42984pt x 182.1196pt.
+File: figs/GS_GS_align/JxB_tor_A.png Graphic file (type png)
+<use figs/GS_GS_align/JxB_tor_A.png>
+Package pdftex.def Info: figs/GS_GS_align/JxB_tor_A.png  used on input line 245.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_unalign/JxB_tor_A.png, id=127, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_unalign/JxB_tor_A.png Graphic file (type png)
+<use figs/GS_GS_unalign/JxB_tor_A.png>
+Package pdftex.def Info: figs/GS_GS_unalign/JxB_tor_A.png  used on input line 246.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align_refine/JxB_tor_A.png, id=128, 1003.75pt x 1405.25pt>
+File: figs/GS_GS_align_refine/JxB_tor_A.png Graphic file (type png)
+<use figs/GS_GS_align_refine/JxB_tor_A.png>
+Package pdftex.def Info: figs/GS_GS_align_refine/JxB_tor_A.png  used on input line 247.
+(pdftex.def)             Requested size: 130.07855pt x 182.1196pt.
+<figs/GS_GS_align_refine/JxB_tor_colorbar.png, id=129, 381.425pt x 1405.25pt>
+File: figs/GS_GS_align_refine/JxB_tor_colorbar.png Graphic file (type png)
+<use figs/GS_GS_align_refine/JxB_tor_colorbar.png>
+Package pdftex.def Info: figs/GS_GS_align_refine/JxB_tor_colorbar.png  used on input line 248.
+(pdftex.def)             Requested size: 49.42984pt x 182.1196pt.
+
+Overfull \hbox (17.91057pt too wide) in paragraph at lines 239--251
+ [][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 256.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 264.
- [5]
-<figs/LD-small.png, id=148, 1927.2pt x 1445.4pt>
+(Font)              scaled to size 8.0pt on input line 256.
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 6.0pt on input line 256.
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 5.0pt on input line 256.
+ [3] [4 <./figs/GS_GS_align/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_B.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_C.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_B.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_C.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_colorbar.png (PNG copy)>]
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 10.0pt on input line 277.
+ [5 <./figs/GS_GS_align/div_B_pol_Hdiv.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_Hcurl.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_vec_CG.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_colorbar.png (PNG copy)>] [6 <./figs/GS_GS_unalign/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_unalign/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_unalign/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_colorbar.png (PNG copy)>] [7]
+<figs/LD-small.png, id=182, 1927.2pt x 1445.4pt>
 File: figs/LD-small.png Graphic file (type png)
 <use figs/LD-small.png>
-Package pdftex.def Info: figs/LD-small.png  used on input line 279.
-(pdftex.def)             Requested size: 278.69475pt x 209.01523pt.
-<figs/LD-big.png, id=151, 1927.2pt x 1445.4pt>
+Package pdftex.def Info: figs/LD-small.png  used on input line 294.
+(pdftex.def)             Requested size: 234.87749pt x 176.15327pt.
+<figs/LD-big.png, id=185, 1927.2pt x 1445.4pt>
 File: figs/LD-big.png Graphic file (type png)
 <use figs/LD-big.png>
-Package pdftex.def Info: figs/LD-big.png  used on input line 288.
-(pdftex.def)             Requested size: 278.69475pt x 209.01523pt.
- (./oral_exam_template.bbl [6 <./figs/LD-small.png> <./figs/LD-big.png>]) [7] (./oral_exam_template.aux)
+Package pdftex.def Info: figs/LD-big.png  used on input line 303.
+(pdftex.def)             Requested size: 234.87749pt x 176.15327pt.
+ [8 <./figs/LD-small.png> <./figs/LD-big.png>]
+<figs/scaling_results/weak/wall_time_vs_ranks.png, id=196, 505.89pt x 361.35pt>
+File: figs/scaling_results/weak/wall_time_vs_ranks.png Graphic file (type png)
+<use figs/scaling_results/weak/wall_time_vs_ranks.png>
+Package pdftex.def Info: figs/scaling_results/weak/wall_time_vs_ranks.png  used on input line 314.
+(pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
+<figs/scaling_results/weak/weak_scaling_efficiency.png, id=197, 505.89pt x 361.35pt>
+File: figs/scaling_results/weak/weak_scaling_efficiency.png Graphic file (type png)
+<use figs/scaling_results/weak/weak_scaling_efficiency.png>
+Package pdftex.def Info: figs/scaling_results/weak/weak_scaling_efficiency.png  used on input line 320.
+(pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
+<figs/scaling_results/strong/wall_time_vs_ranks.png, id=199, 505.89pt x 361.35pt>
+File: figs/scaling_results/strong/wall_time_vs_ranks.png Graphic file (type png)
+<use figs/scaling_results/strong/wall_time_vs_ranks.png>
+Package pdftex.def Info: figs/scaling_results/strong/wall_time_vs_ranks.png  used on input line 333.
+(pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
+<figs/scaling_results/strong/speedup_efficiency.png, id=200, 505.89pt x 361.35pt>
+File: figs/scaling_results/strong/speedup_efficiency.png Graphic file (type png)
+<use figs/scaling_results/strong/speedup_efficiency.png>
+Package pdftex.def Info: figs/scaling_results/strong/speedup_efficiency.png  used on input line 339.
+(pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
+ [9 <./figs/scaling_results/weak/wall_time_vs_ranks.png> <./figs/scaling_results/weak/weak_scaling_efficiency.png> <./figs/scaling_results/strong/wall_time_vs_ranks.png> <./figs/scaling_results/strong/speedup_efficiency.png>] (./oral_exam_template.bbl) [10] (./oral_exam_template.aux)
 Package rerunfilecheck Info: File `oral_exam_template.out' has not changed.
-(rerunfilecheck)             Checksum: 33F0A4E640668F318F54E792EB1B402F;2294.
+(rerunfilecheck)             Checksum: 6B95BE43BC7D051812A6541FBB8EBB0B;2651.
  ) 
 Here is how much of TeX's memory you used:
- 13185 strings out of 478994
- 197815 string characters out of 5858183
- 517953 words of memory out of 5000000
- 30407 multiletter control sequences out of 15000+600000
- 414363 words of font info for 70 fonts, out of 8000000 for 9000
+ 13247 strings out of 478994
+ 199549 string characters out of 5858183
+ 517438 words of memory out of 5000000
+ 30448 multiletter control sequences out of 15000+600000
+ 415895 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,16n,131p,1139b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb>
-Output written on oral_exam_template.pdf (7 pages, 8985526 bytes).
+ 83i,16n,131p,1139b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb>
+Output written on oral_exam_template.pdf (10 pages, 9393913 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 53 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 238 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

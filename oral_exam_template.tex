@@ -253,8 +253,7 @@ The results for mesh perturbation and refinement are shown in Figure \ref{fig:co
 \end{figure}
 
 \subsection{Conclusions}
-\QT{need to close it: cite your paper and your branch. Say that this work has been presented at the MFEM workshop.}
-
+This work implements the structure-preserving transfer of Grad--Shafranov equilibria to magnetohydrodynamic solvers using compatible finite element spaces. Our numerical experiments confirm that using compatible finite element spaces within the de Rham complex significantly improves the preservation of force balance and the divergence-free property of the magnetic field. We further demonstrate that mesh alignment and resolving the gradient near the separatrix are important for preserving the structure-preserving property. The implementation is available in the MFEM repository\footnote{Implementation available at: \url{https://github.com/mfem/mfem/tree/tds-load}} and this work has been presented at the 2025 MFEM Community Workshop\footnote{Presentation available at: \url{https://mfem.org/pdf/workshop25/15_Zhang_Magnetohydrodynamic_Solvers.pdf}}. The details of this work is presented in \cite{zhang2025structure}.
 
 \newpage
 \section{Computational Artifact II: Implementation of a Finite-Element-Based Particle-In-Cell Method}
@@ -283,13 +282,13 @@ The solution process per timestep (repeating steps 1--6) is as follows:
 \end{enumerate}
 
 \subsection{Symplectic PIC}
-\QT{discuss that this code is symplectic, briefly. You can use what I wrote but not everything.}
+% \QT{discuss that this code is symplectic, briefly. You can use what I wrote but not everything.}
+
+
 
 \newpage
 \subsection{Results}
-The implementation has been tested with the linear Landau damping test case following the setup from \cite{ricketson2025explicit}. Two sample runs are shown below.
-
-The first run uses 4 MPI ranks with 102,400 particles per rank on a $32 \times 32$ grid. The simulation runs for 200 time steps with a time step size of $\Delta t = 0.1$. The perturbation wavenumber is set to $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and the perturbation amplitude is $a = 0.05$. The charge and mass parameters are both set to $0.001181640625$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The result is shown in Figure \ref{fig:landau_small}.
+The implementation has been tested with the linear Landau damping test case following the setup from \cite{ricketson2025explicit}. We have conducted two sample runs. The first run uses 4 MPI ranks with 102,400 particles per rank on a $32 \times 32$ grid. The simulation runs for 200 time steps with a time step size of $\Delta t = 0.1$. The perturbation wavenumber is set to $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and the perturbation amplitude is $a = 0.05$. The charge and mass parameters are both set to $0.001181640625$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The result is shown in Figure \ref{fig:landau_small}. The resultant damping rate is already close to the reference damping rate.
 
 \begin{figure}[!htbp]
     \centering
@@ -298,7 +297,7 @@ The first run uses 4 MPI ranks with 102,400 particles per rank on a $32 \times 3
     \label{fig:landau_small}
 \end{figure}
 
-The second run uses 256 MPI ranks with 20,000 particles per rank on a $64 \times 64$ grid. The simulation runs for 160,000 time steps with a smaller time step size of $\Delta t = 0.05$ for improved accuracy. The same perturbation wavenumber $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and perturbation amplitude $a = 0.05$ are used, with charge and mass parameters set to $0.00009453125$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The result is shown in Figure \ref{fig:landau_big}.
+The second run uses 256 MPI ranks with 20,000 particles per rank on a $64 \times 64$ grid. The simulation runs for 160,000 time steps with a smaller time step size of $\Delta t = 0.05$ for improved accuracy. The same perturbation wavenumber $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and perturbation amplitude $a = 0.05$ are used, with charge and mass parameters set to $0.00009453125$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The result is shown in Figure \ref{fig:landau_big}. With this larger run, the resultant damping rate is very close to the reference damping rate.
 
 \begin{figure}[!htbp]
     \centering
@@ -307,8 +306,46 @@ The second run uses 256 MPI ranks with 20,000 particles per rank on a $64 \times
     \label{fig:landau_big}
 \end{figure}
 
+Further, we have completed scalability tests with up to 128 MPI ranks. The first test is a weak scaling study, where the number of particles per rank is fixed at 10,240 and the number of MPI ranks varies from $2^3$ to $2^7$ (8, 16, 32, 64, and 128 ranks). The simulation runs for 400 time steps with a time step size of $\Delta t = 0.05$ on a $64 \times 64$ grid. The perturbation wavenumber is set to $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and the perturbation amplitude is $a = 0.05$. The charge and mass parameters are both set to $0.00009453125$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The weak scaling results are shown in Figure \ref{fig:weak_scaling}. Note that the weak scaling efficiency is computed with respect to the wall time of the 8-rank run. It might be larger than 1 because we only scale the number of particles with the number of ranks, while the mesh size is fixed.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/scaling_results/weak/wall_time_vs_ranks.png}
+        \caption{Wall time vs. number of ranks}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/scaling_results/weak/weak_scaling_efficiency.png}
+        \caption{Weak scaling efficiency}
+    \end{subfigure}
+    \caption{Weak scaling results for the 2D2V PIC miniapp with fixed particles per rank (10,240) across 8 to 128 MPI ranks.}
+    \label{fig:weak_scaling}
+\end{figure}
+
+The second test is a strong scaling study, where the total number of particles is fixed at 2,621,440 and the number of MPI ranks varies from $2^3$ to $2^7$ (8, 16, 32, 64, and 128 ranks). The simulation runs for 400 time steps with a time step size of $\Delta t = 0.05$ on a $64 \times 64$ grid. The perturbation wavenumber is set to $k = 0.2855993321$ (where $k = 2\pi/l$ with $l = 22$) and the perturbation amplitude is $a = 0.05$. The charge and mass parameters are both set to $0.00009453125$ such that the particle charge and mass density is 1, and the polynomial order of the FEM spaces is 1. The strong scaling results are shown in Figure \ref{fig:strong_scaling}. Similarly, the strong scaling efficiency is computed with respect to the wall time of the 8-rank run.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/scaling_results/strong/wall_time_vs_ranks.png}
+        \caption{Wall time vs. number of ranks}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/scaling_results/strong/speedup_efficiency.png}
+        \caption{Speedup and efficiency}
+    \end{subfigure}
+    \caption{Strong scaling results for the 2D2V PIC miniapp with fixed total particles (2,621,440) across 8 to 128 MPI ranks.}
+    \label{fig:strong_scaling}
+\end{figure}
+
 \subsection{Conclusions}
-\QT{again we need to close it: cite the repo, discuss the current capability, discuss what we want to do in the future with your code.}
+This work implements a finite-element-based particle-in-cell method for solving the Vlasov-Poisson equation, demonstrating the coupling of explicit particle pushing with finite-element Poisson solves for self-consistent electric fields. The key features of the implementation include: (1) Dirac delta shape function for particle charge deposition, (2) symplectic structure preservation achieved through the use of compatible finite element spaces following the discrete de-Rham complex and the leap-frog scheme for particle time stepping, and (3) parallel particle redistribution across MPI ranks with demonstrated scalability, tested with up to 256 MPI ranks. The implementation is currently under pull request review\footnote{Pull request \#5186: 2D2V electrostatic PIC, available at: \url{https://github.com/mfem/mfem/pull/5186}} in the MFEM repository. For future work, we plan to explore alternative shape functions beyond the Dirac delta for improved charge deposition accuracy, and investigate plasma-related optimization and control applications.
 
 \bibliographystyle{plain}
 \bibliography{references}

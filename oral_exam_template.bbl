@@ -5,4 +5,10 @@ Lee~F Ricketson and Jingwei Hu.
 \newblock An explicit, energy-conserving particle-in-cell scheme.
 \newblock {\em Journal of Computational Physics}, page 114098, 2025.
 
+\bibitem{zhang2025structure}
+Rushan Zhang, Golo Wimmer, and Qi~Tang.
+\newblock Structure-preserving transfer of grad-shafranov equilibria to
+  magnetohydrodynamic solvers.
+\newblock {\em arXiv preprint arXiv:2511.07763}, 2025.
+
 \end{thebibliography}
