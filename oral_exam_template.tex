@@ -66,7 +66,7 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 
-\title{Oral Exam: Structure-preserving Numerical Algorithms for Plasma Modeling}
+\title{CSE Oral Qualifying Exam:\\ Structure-Preserving Numerical Algorithms for Plasma Modeling}
 \author{Rushan Zhang\thanks{AI has been involved in this write-up.}}
 \date{\today}
 
@@ -258,9 +258,9 @@ The results for mesh perturbation and refinement are shown in Figure \ref{fig:co
 This work implements the structure-preserving transfer of Grad--Shafranov equilibria to magnetohydrodynamic solvers using compatible finite element spaces. Our numerical experiments confirm that using compatible finite element spaces within the de Rham complex significantly improves the preservation of force balance and the divergence-free property of the magnetic field. We further demonstrate that mesh alignment and resolving the gradient near the separatrix are important for preserving the structure-preserving property. The implementation is available in the MFEM repository\footnote{Implementation available at: \url{https://github.com/mfem/mfem/tree/tds-load}} and this work has been presented at the 2025 MFEM Community Workshop\footnote{Presentation available at: \url{https://mfem.org/pdf/workshop25/15_Zhang_Magnetohydrodynamic_Solvers.pdf}}. The details of this work is presented in \cite{zhang2025structure}.
 
 \newpage
-\section{Computational Artifact II: Implementation of a Finite-Element-Based Particle-In-Cell Method}
+\section{Computational Artifact II: Structure-Preserving Finite-Element-Based Particle-In-Cell Method}
 \subsection{Description}
-This work presents the implementation of a finite-element-based particle-in-cell method for solving the Vlasov--Poisson equation. The implementation adds a new \textbf{2D2V Particle-In-Cell (PIC) miniapp} to MFEM that demonstrates explicit particle pushing coupled to a finite-element Poisson solve for self-consistent electric fields on a periodic domain (pull request submitted). The implementation targets plasma physics use cases (e.g., linear Landau damping) and serves as a reference example for coupling MFEM's particle support and FEM-based parallel elliptic solvers. The miniapp features explicit leap-frog time integration, periodic 2D Cartesian mesh with charge-conserving particle deposition using Dirac delta shape functions, parallel particle redistribution across MPI ranks, and optional GLVis visualization for both $\phi$ and $\mathbf{E}$.
+This work presents the implementation of a FEM-based particle-in-cell (PIC) method for solving the Vlasov--Poisson equation. The implementation adds a new \textbf{2D2V PIC miniapp} to MFEM that demonstrates explicit particle pushing coupled to a finite-element Poisson solve for self-consistent electric fields on a periodic domain (pull request submitted). The implementation targets plasma physics use cases (e.g., linear Landau damping) and serves as a reference example for coupling MFEM's particle support and FEM-based parallel elliptic solvers. The miniapp features explicit leap-frog time integration, periodic 2D Cartesian mesh with charge-conserving particle deposition using Dirac delta shape functions, parallel particle redistribution across MPI ranks, and optional GLVis visualization for both $\phi$ and $\mathbf{E}$.
 
 
 
@@ -299,6 +299,8 @@ The solution process per timestep (repeating steps 1--6) is as follows:
 \end{enumerate}
 
 \subsection{Symplectic PIC}
+Here we show our PIC implementation is \emph{symplectic}, i.e., there exists a discrete Hamiltonian associated with our solver, and the spatial and temporal discretizations preseve the symplectic structure by design. 
+
 Consider the Poisson equation,
 \begin{equation}
     -\epsilon_0 \Delta\phi(\mathbf{x}) = e \sum_{p=1}^{N_p} \psi_p \delta(\mathbf{x}-\mathbf{x}_p) - e n_0.
