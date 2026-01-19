@@ -269,9 +269,9 @@ The PIC method solves the Vlasov--Poisson system,
 \end{equation}
 where the electric potential $\phi$ is computed from Poisson's equation:
 \begin{equation}
-    -\epsilon_0 \Delta\phi(\mathbf{q}) = e \sum_{j=1}^{N_p} \psi_j \delta(\mathbf{q}-\mathbf{Q}_j) - e n_0,
+    -\epsilon_0 \Delta\phi(\mathbf{x}) = e \sum_{p=1}^{N_p} \psi_p \delta(\mathbf{x}-\mathbf{x}_p) - e n_0,
 \end{equation}
-where the vacuum permittivity $\epsilon_0$ is set to 1, $e$ is the particle charge, the particle weight $\psi_j$ is currently set to 1, $\mathbf{Q}_j$ is the particle position, and $n_0$ is a constant neutralizing term that enforces global charge neutrality, ensuring that the right-hand side has zero mean and the periodic Poisson problem is well-posed. The electric field is then computed from the potential:
+where the vacuum permittivity $\epsilon_0$ is set to 1, $e$ is the particle charge, the particle weight $\psi_p$ is currently set to 1, $\mathbf{x}_p$ is the particle position, and $n_0$ is a constant neutralizing term that enforces global charge neutrality, ensuring that the right-hand side has zero mean and the periodic Poisson problem is well-posed. The electric field is then computed from the potential:
 \begin{equation}
     \mathbf{E} = -\nabla \phi.
 \end{equation}
@@ -288,14 +288,13 @@ The solution process per timestep (repeating steps 1--6) is as follows:
 \end{enumerate}
 
 \subsection{Symplectic PIC}
-% \QT{discuss that this code is symplectic, briefly. You can use what I wrote but not everything.}
 Consider the Poisson equation,
 \begin{equation}
-    -\epsilon_0 \Delta\phi(\mathbf{q}) = e \sum_{j=1}^{N_p} \psi_j \delta(\mathbf{q}-\mathbf{Q}_j) - e n_0.
+    -\epsilon_0 \Delta\phi(\mathbf{x}) = e \sum_{p=1}^{N_p} \psi_p \delta(\mathbf{x}-\mathbf{x}_p) - e n_0.
 \end{equation}
 We solve the Poisson equation using $H^1$ finite element space, where $\varphi \in H^1(\Omega)$ is a test function,
 \begin{equation}
-    \epsilon_0 \langle \nabla \varphi, \nabla \phi \rangle = e \sum_{j=1}^{N_p} \psi_j \langle \varphi, \delta(\mathbf{q}-\mathbf{Q}_j) \rangle - e n_0 \langle \varphi, 1 \rangle,
+    \epsilon_0 \langle \nabla \varphi, \nabla \phi \rangle = e \sum_{p=1}^{N_p} \psi_p \langle \varphi, \delta(\mathbf{x}-\mathbf{x}_p) \rangle - e n_0 \langle \varphi, 1 \rangle,
 \end{equation}
 such that we obtain a fully discrete system of equations,
 \begin{equation}
@@ -320,14 +319,14 @@ we have the discrete gradient computed as
 
 Define the discrete Hamiltonian as
 \begin{equation}
-    H(\{\mathbf{x}_j\},\{\mathbf{p}_j\})
-    = \frac{1}{2}\sum_{j=1}^{N_p}\frac{|\mathbf{p}_j|^2}{m_j}
-    + \frac{1}{2\epsilon_0}\hat{\mathbf{B}}(\{\mathbf{x}_j\})^T \mathbf{K}^{-1}\hat{\mathbf{B}}(\{\mathbf{x}_j\}),
+    H(\{\mathbf{x}_p\},\{\mathbf{p}_p\})
+    = \frac{1}{2}\sum_{p=1}^{N_p}\frac{|\mathbf{p}_p|^2}{m_p}
+    + \frac{1}{2\epsilon_0}\hat{\mathbf{B}}(\{\mathbf{x}_p\})^T \mathbf{K}^{-1}\hat{\mathbf{B}}(\{\mathbf{x}_p\}),
 \end{equation}
 where
 \begin{equation}
-    \hat{\mathbf{B}}_i(\{\mathbf{x}_j\})
-    = e\sum_{j=1}^{N_p}\psi_j\,\varphi_i(\mathbf{x}_j) \;-\; e n_0\int_\Omega \varphi_i.
+    \hat{\mathbf{B}}_i(\{\mathbf{x}_p\})
+    = e\sum_{p=1}^{N_p}\psi_p\,\varphi_i(\mathbf{x}_p) \;-\; e n_0\int_\Omega \varphi_i.
 \end{equation}
 For the $p$-th particle, $(\mathbf{x}_p, \mathbf{p}_p)$, the canonical dynamics is given by
 \begin{align}
