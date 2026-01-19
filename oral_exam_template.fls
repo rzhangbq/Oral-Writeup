@@ -914,6 +914,7 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./figs/LD-small.png
 INPUT ./figs/LD-small.png
 INPUT figs/LD-small.png
@@ -949,7 +950,6 @@ INPUT ./oral_exam_template.bbl
 INPUT oral_exam_template.bbl
 INPUT ./oral_exam_template.bbl
 INPUT oral_exam_template.bbl
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT oral_exam_template.aux
 INPUT ./oral_exam_template.out
 INPUT ./oral_exam_template.out

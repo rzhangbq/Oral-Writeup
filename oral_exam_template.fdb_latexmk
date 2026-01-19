@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex oral_exam_template"] 1768796782 "oral_exam_template.aux" "oral_exam_template.bbl" "oral_exam_template" 1768796853
+["bibtex oral_exam_template"] 1768853681 "oral_exam_template.aux" "oral_exam_template.bbl" "oral_exam_template" 1768853682
   "/usr/local/texlive/2021/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "oral_exam_template.aux" 1768796853 6517 c31f137752c78513cdaa7b59d05ea154 "pdflatex"
+  "oral_exam_template.aux" 1768853682 6518 ab1feff0e2b1e209aaacc8a907c02081 "pdflatex"
   "references.bib" 1768594003 497 7471d86dffdfc94e6aaf534f5910fdaf ""
   (generated)
-  "oral_exam_template.blg"
   "oral_exam_template.bbl"
-["pdflatex"] 1768796851 "oral_exam_template.tex" "oral_exam_template.pdf" "oral_exam_template" 1768796853
+  "oral_exam_template.blg"
+["pdflatex"] 1768853681 "oral_exam_template.tex" "oral_exam_template.pdf" "oral_exam_template" 1768853682
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc" 1561323594 2496 4d35740f3a177992ff7b134746c0a1db ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -205,12 +205,12 @@
   "figs/scaling_results/strong/wall_time_vs_ranks.png" 1768687578 84563 c8d2d68cc3a9e973403fcf1043194663 ""
   "figs/scaling_results/weak/wall_time_vs_ranks.png" 1768687587 113784 c6bbd6bd3599e01351414ad7d296a2a1 ""
   "figs/scaling_results/weak/weak_scaling_efficiency.png" 1768687588 85740 9ae80c9070cb1c2de3fd25836195024c ""
-  "oral_exam_template.aux" 1768796853 6517 c31f137752c78513cdaa7b59d05ea154 "pdflatex"
-  "oral_exam_template.bbl" 1768796782 478 26c2365d57340f58429b20942f8f79b6 "bibtex oral_exam_template"
-  "oral_exam_template.out" 1768796853 2651 6b95be43bc7d051812a6541fbb8ebb0b "pdflatex"
-  "oral_exam_template.tex" 1768796850 32490 1e227c5e6e66ab789a4392062fa3ba81 ""
+  "oral_exam_template.aux" 1768853682 6518 ab1feff0e2b1e209aaacc8a907c02081 "pdflatex"
+  "oral_exam_template.bbl" 1768853681 478 26c2365d57340f58429b20942f8f79b6 "bibtex oral_exam_template"
+  "oral_exam_template.out" 1768853682 2650 a23155c224a7e7452def6379b3d081e8 "pdflatex"
+  "oral_exam_template.tex" 1768853640 32870 75e2e2a551a61e907e1109e19789365b ""
   (generated)
-  "oral_exam_template.pdf"
-  "oral_exam_template.log"
   "oral_exam_template.out"
   "oral_exam_template.aux"
+  "oral_exam_template.pdf"
+  "oral_exam_template.log"
