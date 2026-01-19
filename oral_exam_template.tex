@@ -267,11 +267,11 @@ The PIC method solves the Vlasov--Poisson system,
 \begin{equation}
     \frac{\partial f}{\partial t} + \mathbf{v} \cdot \nabla f + \frac{e}{m} \mathbf{E} \cdot \nabla_v f = 0,
 \end{equation}
-\QT{where $f$ is approximated by macro-particle representation as $f \approx \sum_{j=1}^{N_p} \psi_j \delta(\mathbf{x}-\mathbf{X}_j) \delta(\mathbf{p}-\mathbf{P}_j) .$} The electric potential $\phi$ is computed from Poisson's equation:
+where the electric potential $\phi$ is computed from Poisson's equation:
 \begin{equation}
-    -\epsilon_0 \Delta\phi(\mathbf{x}) = e \sum_{j=1}^{N_p} \psi_j \delta(\mathbf{x}-\mathbf{X}_j) - e n_0,
+    -\epsilon_0 \Delta\phi(\mathbf{x}) = e \sum_{p=1}^{N_p} \psi_p \delta(\mathbf{x}-\mathbf{x}_p) - e n_0,
 \end{equation}
-where the vacuum permittivity $\epsilon_0$ is set to 1, $e$ is the particle charge, the particle weight $\psi_j$ is currently set to 1, $\mathbf{X}_j$ is the particle position, and $n_0$ is a constant neutralizing term that enforces global charge neutrality, ensuring that the right-hand side has zero mean and the periodic Poisson problem is well-posed. The electric field is then computed from the potential:
+where the vacuum permittivity $\epsilon_0$ is set to 1, $e$ is the particle charge, the particle weight $\psi_p$ is currently set to 1, $\mathbf{x}_p$ is the particle position, and $n_0$ is a constant neutralizing term that enforces global charge neutrality, ensuring that the right-hand side has zero mean and the periodic Poisson problem is well-posed. The electric field is then computed from the potential:
 \begin{equation}
     \mathbf{E} = -\nabla \phi.
 \end{equation}
@@ -288,14 +288,13 @@ The solution process per timestep (repeating steps 1--6) is as follows:
 \end{enumerate}
 
 \subsection{Symplectic PIC}
-% \QT{discuss that this code is symplectic, briefly. You can use what I wrote but not everything.}
 Consider the Poisson equation,
 \begin{equation}
-    -\epsilon_0 \Delta\phi(\mathbf{q}) = e \sum_{j=1}^{N_p} \psi_j \delta(\mathbf{q}-\mathbf{Q}_j) - e n_0.
+    -\epsilon_0 \Delta\phi(\mathbf{x}) = e \sum_{p=1}^{N_p} \psi_p \delta(\mathbf{x}-\mathbf{x}_p) - e n_0.
 \end{equation}
 We solve the Poisson equation using $H^1$ finite element space, where $\varphi \in H^1(\Omega)$ is a test function,
 \begin{equation}
-    \epsilon_0 \langle \nabla \varphi, \nabla \phi \rangle = e \sum_{j=1}^{N_p} \psi_j \langle \varphi, \delta(\mathbf{q}-\mathbf{Q}_j) \rangle - e n_0 \langle \varphi, 1 \rangle,
+    \epsilon_0 \langle \nabla \varphi, \nabla \phi \rangle = e \sum_{p=1}^{N_p} \psi_p \langle \varphi, \delta(\mathbf{x}-\mathbf{x}_p) \rangle - e n_0 \langle \varphi, 1 \rangle,
 \end{equation}
 such that we obtain a fully discrete system of equations,
 \begin{equation}
@@ -313,22 +312,21 @@ We want $\mathbf{E} = -\nabla \phi$, by the discrete de-Rham complex,
         CG \ar[r]^{\nabla_h}  & ND,
     }
 \end{displaymath}
-where $CG$ stands for the continuous Galerkin space and $ND$ standa for the Nedelec space that are used on MFEM.
-Therefore, we have the discrete gradient computed as
+we have the discrete gradient computed as
 \begin{equation}
     \langle \mathbf{v}, \hat{\mathbf{E}} + \nabla \phi \rangle = 0, \quad \forall \mathbf{v} \in H(\text{{\normalfont curl}};\Omega). \label{eq:discrete_E_equation}
 \end{equation}
 
 Define the discrete Hamiltonian as
 \begin{equation}
-    H(\{\mathbf{x}_j\},\{\mathbf{p}_j\})
-    = \frac{1}{2}\sum_{j=1}^{N_p}\frac{|\mathbf{p}_j|^2}{m_j}
-    + \frac{1}{2\epsilon_0}\hat{\mathbf{B}}(\{\mathbf{x}_j\})^T \mathbf{K}^{-1}\hat{\mathbf{B}}(\{\mathbf{x}_j\}),
+    H(\{\mathbf{x}_p\},\{\mathbf{p}_p\})
+    = \frac{1}{2}\sum_{p=1}^{N_p}\frac{|\mathbf{p}_p|^2}{m_p}
+    + \frac{1}{2\epsilon_0}\hat{\mathbf{B}}(\{\mathbf{x}_p\})^T \mathbf{K}^{-1}\hat{\mathbf{B}}(\{\mathbf{x}_p\}),
 \end{equation}
 where
 \begin{equation}
-    \hat{\mathbf{B}}_i(\{\mathbf{x}_j\})
-    = e\sum_{j=1}^{N_p}\psi_j\,\varphi_i(\mathbf{x}_j) \;-\; e n_0\int_\Omega \varphi_i.
+    \hat{\mathbf{B}}_i(\{\mathbf{x}_p\})
+    = e\sum_{p=1}^{N_p}\psi_p\,\varphi_i(\mathbf{x}_p) \;-\; e n_0\int_\Omega \varphi_i.
 \end{equation}
 For the $p$-th particle, $(\mathbf{x}_p, \mathbf{p}_p)$, the canonical dynamics is given by
 \begin{align}
@@ -437,7 +435,7 @@ The second test is a strong scaling study, where the total number of particles i
 \end{figure}
 
 \subsection{Conclusions}
-This work implements a finite-element-based particle-in-cell method for solving the Vlasov-Poisson equation, demonstrating the coupling of explicit particle pushing with finite-element Poisson solves for self-consistent electric fields. The key features of the implementation include: (1) Dirac delta shape function for particle charge deposition, (2) symplectic structure preservation achieved through the use of compatible finite element spaces following the discrete de-Rham complex and the leap-frog scheme for particle time stepping, and (3) parallel particle redistribution across MPI ranks with demonstrated scalability, tested with up to 256 MPI ranks. The implementation is currently under pull request review\footnote{Pull request \#5186: 2D2V electrostatic PIC, available at: \url{https://github.com/mfem/mfem/pull/5186}} in the MFEM repository, which will be merged as an official miniapp of MFEM. For future work, we plan to explore alternative shape functions beyond the Dirac delta for improved charge deposition accuracy, and investigate plasma-related optimization and control applications.
+This work implements a finite-element-based particle-in-cell method for solving the Vlasov-Poisson equation, demonstrating the coupling of explicit particle pushing with finite-element Poisson solves for self-consistent electric fields. The key features of the implementation include: (1) Dirac delta shape function for particle charge deposition, (2) symplectic structure preservation achieved through the use of compatible finite element spaces following the discrete de-Rham complex and the leap-frog scheme for particle time stepping, and (3) parallel particle redistribution across MPI ranks with demonstrated scalability, tested with up to 256 MPI ranks. The implementation is currently under pull request review\footnote{Pull request \#5186: 2D2V electrostatic PIC, available at: \url{https://github.com/mfem/mfem/pull/5186}} in the MFEM repository. For future work, we plan to explore alternative shape functions beyond the Dirac delta for improved charge deposition accuracy, and investigate plasma-related optimization and control applications.
 
 \bibliographystyle{plain}
 \bibliography{references}
