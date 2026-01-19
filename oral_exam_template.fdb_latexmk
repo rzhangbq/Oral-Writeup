@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex oral_exam_template"] 1768785601 "oral_exam_template.aux" "oral_exam_template.bbl" "oral_exam_template" 1768785603
+["bibtex oral_exam_template"] 1768795899 "oral_exam_template.aux" "oral_exam_template.bbl" "oral_exam_template" 1768795993
   "/usr/local/texlive/2021/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "oral_exam_template.aux" 1768785603 6515 4e8ef3011c850eeda2a94998d0576c70 "pdflatex"
+  "oral_exam_template.aux" 1768795993 6519 c5d0db7f9cda7ef0ddf10f147bec3ce0 "pdflatex"
   "references.bib" 1768594003 497 7471d86dffdfc94e6aaf534f5910fdaf ""
   (generated)
   "oral_exam_template.blg"
   "oral_exam_template.bbl"
-["pdflatex"] 1768785601 "oral_exam_template.tex" "oral_exam_template.pdf" "oral_exam_template" 1768785603
+["pdflatex"] 1768795992 "oral_exam_template.tex" "oral_exam_template.pdf" "oral_exam_template" 1768795993
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc" 1561323594 2496 4d35740f3a177992ff7b134746c0a1db ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -71,6 +71,7 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1248133631 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb" 1215737283 162624 9dcc92cd3b1dfe2ecc80e6da7f2eb6bd ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb" 1215737283 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb" 1558214095 55526 184de5d68af8c544d6d1653244a2b006 ""
@@ -198,12 +199,12 @@
   "figs/scaling_results/strong/wall_time_vs_ranks.png" 1768687578 84563 c8d2d68cc3a9e973403fcf1043194663 ""
   "figs/scaling_results/weak/wall_time_vs_ranks.png" 1768687587 113784 c6bbd6bd3599e01351414ad7d296a2a1 ""
   "figs/scaling_results/weak/weak_scaling_efficiency.png" 1768687588 85740 9ae80c9070cb1c2de3fd25836195024c ""
-  "oral_exam_template.aux" 1768785603 6515 4e8ef3011c850eeda2a94998d0576c70 "pdflatex"
-  "oral_exam_template.bbl" 1768785601 478 26c2365d57340f58429b20942f8f79b6 "bibtex oral_exam_template"
-  "oral_exam_template.out" 1768785603 2651 6b95be43bc7d051812a6541fbb8ebb0b "pdflatex"
-  "oral_exam_template.tex" 1768785599 31365 d7f03526d1c1398fb283418115eb4227 ""
+  "oral_exam_template.aux" 1768795993 6519 c5d0db7f9cda7ef0ddf10f147bec3ce0 "pdflatex"
+  "oral_exam_template.bbl" 1768795899 478 26c2365d57340f58429b20942f8f79b6 "bibtex oral_exam_template"
+  "oral_exam_template.out" 1768795993 2651 6b95be43bc7d051812a6541fbb8ebb0b "pdflatex"
+  "oral_exam_template.tex" 1768795991 32145 fab9a433fb42b44796acbca320602c90 ""
   (generated)
   "oral_exam_template.pdf"
+  "oral_exam_template.aux"
   "oral_exam_template.log"
   "oral_exam_template.out"
-  "oral_exam_template.aux"
