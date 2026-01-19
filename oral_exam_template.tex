@@ -368,13 +368,14 @@ so
         &= -e \psi_p \sum_{i=1}^{N_{CG}} \hat{\phi}_i \nabla \varphi_i(\mathbf{x}_p),
     \end{split}
 \end{align}
-where $N_{CG}$ is the number of basis functions in the discrete $H^1$ finite element space. Recall \eqref{eq:discrete_E_equation}, and recall that in leap-frog stepping, 
+where $N_{CG}$ is the number of basis functions in the discrete $H^1$ finite element space. Recall that $\mathbf{v}_i \in H(\text{{\normalfont curl}};\Omega)$ are exactly $\nabla \varphi_i$ where $\varphi_i \in H^1(\Omega)$, and recall that in leap-frog stepping, 
 \begin{align}
     \begin{split}
         \frac{d\mathbf{x}_p}{dt} & = \frac{\mathbf{p}_p}{m_p}          \\
-        \frac{d\mathbf{p}_p}{dt} & = e \psi_p \mathbf{E}(\mathbf{x}_p)
+        \frac{d\mathbf{p}_p}{dt} & = e \psi_p \mathbf{E}(\mathbf{x}_p),
     \end{split}
 \end{align}
+where $\mathbf{E}$ is given by \eqref{eq:discrete_E_equation},
 we see that our implementation is consistent with the canonical dynamics, so the discrete system is indeed symplectic.
 
 \subsection{Results}
