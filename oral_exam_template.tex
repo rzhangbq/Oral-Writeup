@@ -264,7 +264,9 @@ This work presents the implementation of a finite-element-based particle-in-cell
 
 \subsection{Governing Equations}
 The PIC method solves the Vlasov--Poisson system, 
-\QT{need to write down the Vlasov--Poisson equation}
+\begin{equation}
+    \frac{\partial f}{\partial t} + \mathbf{v} \cdot \nabla f + \frac{e}{m} \mathbf{E} \cdot \nabla_v f = 0,
+\end{equation}
 where the electric potential $\phi$ is computed from Poisson's equation:
 \begin{equation}
     -\epsilon_0 \Delta\phi(\mathbf{q}) = e \sum_{j=1}^{N_p} \psi_j \delta(\mathbf{q}-\mathbf{Q}_j) - e n_0,

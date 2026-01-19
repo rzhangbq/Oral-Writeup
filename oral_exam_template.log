@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.31)  18 JAN 2026 20:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.31)  18 JAN 2026 20:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -632,59 +632,58 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 6.0pt on input line 256.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 5.0pt on input line 256.
- [3] [4 <./figs/GS_GS_align/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_B.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_C.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_B.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_C.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_colorbar.png (PNG copy)>]
+ [3] [4 <./figs/GS_GS_align/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_B.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_C.png (PNG copy)> <./figs/GS_GS_align/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_B.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_C.png (PNG copy)> <./figs/GS_GS_align/JxB_tor_colorbar.png (PNG copy)>] [5 <./figs/GS_GS_align/div_B_pol_Hdiv.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_Hcurl.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_vec_CG.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_colorbar.png (PNG copy)>] [6 <./figs/GS_GS_unalign/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_unalign/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_unalign/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_colorbar.png (PNG copy)>]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 281.
- [5 <./figs/GS_GS_align/div_B_pol_Hdiv.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_Hcurl.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_vec_CG.png (PNG copy)> <./figs/GS_GS_align/div_B_pol_colorbar.png (PNG copy)>] [6 <./figs/GS_GS_unalign/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_pol_A.png (PNG copy)> <./figs/GS_GS_unalign/JxB_pol_colorbar.png (PNG copy)> <./figs/GS_GS_unalign/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_A.png (PNG copy)> <./figs/GS_GS_align_refine/JxB_tor_colorbar.png (PNG copy)>] <xymatrix 2x2 168> [7]
-<figs/LD-small.png, id=198, 1927.2pt x 1445.4pt>
+(Font)              scaled to size 10.0pt on input line 283.
+ <xymatrix 2x2 168> [7] [8]
+<figs/LD-small.png, id=208, 1927.2pt x 1445.4pt>
 File: figs/LD-small.png Graphic file (type png)
 <use figs/LD-small.png>
-Package pdftex.def Info: figs/LD-small.png  used on input line 383.
+Package pdftex.def Info: figs/LD-small.png  used on input line 385.
 (pdftex.def)             Requested size: 234.87749pt x 176.15327pt.
- [8]
-<figs/LD-big.png, id=212, 1927.2pt x 1445.4pt>
+<figs/LD-big.png, id=211, 1927.2pt x 1445.4pt>
 File: figs/LD-big.png Graphic file (type png)
 <use figs/LD-big.png>
-Package pdftex.def Info: figs/LD-big.png  used on input line 392.
+Package pdftex.def Info: figs/LD-big.png  used on input line 394.
 (pdftex.def)             Requested size: 234.87749pt x 176.15327pt.
  [9 <./figs/LD-small.png> <./figs/LD-big.png>]
 <figs/scaling_results/weak/wall_time_vs_ranks.png, id=222, 505.89pt x 361.35pt>
 File: figs/scaling_results/weak/wall_time_vs_ranks.png Graphic file (type png)
 <use figs/scaling_results/weak/wall_time_vs_ranks.png>
-Package pdftex.def Info: figs/scaling_results/weak/wall_time_vs_ranks.png  used on input line 403.
+Package pdftex.def Info: figs/scaling_results/weak/wall_time_vs_ranks.png  used on input line 405.
 (pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
 <figs/scaling_results/weak/weak_scaling_efficiency.png, id=223, 505.89pt x 361.35pt>
 File: figs/scaling_results/weak/weak_scaling_efficiency.png Graphic file (type png)
 <use figs/scaling_results/weak/weak_scaling_efficiency.png>
-Package pdftex.def Info: figs/scaling_results/weak/weak_scaling_efficiency.png  used on input line 409.
+Package pdftex.def Info: figs/scaling_results/weak/weak_scaling_efficiency.png  used on input line 411.
 (pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
 <figs/scaling_results/strong/wall_time_vs_ranks.png, id=225, 505.89pt x 361.35pt>
 File: figs/scaling_results/strong/wall_time_vs_ranks.png Graphic file (type png)
 <use figs/scaling_results/strong/wall_time_vs_ranks.png>
-Package pdftex.def Info: figs/scaling_results/strong/wall_time_vs_ranks.png  used on input line 422.
+Package pdftex.def Info: figs/scaling_results/strong/wall_time_vs_ranks.png  used on input line 424.
 (pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
 <figs/scaling_results/strong/speedup_efficiency.png, id=226, 505.89pt x 361.35pt>
 File: figs/scaling_results/strong/speedup_efficiency.png Graphic file (type png)
 <use figs/scaling_results/strong/speedup_efficiency.png>
-Package pdftex.def Info: figs/scaling_results/strong/speedup_efficiency.png  used on input line 428.
+Package pdftex.def Info: figs/scaling_results/strong/speedup_efficiency.png  used on input line 430.
 (pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
  [10 <./figs/scaling_results/weak/wall_time_vs_ranks.png> <./figs/scaling_results/weak/weak_scaling_efficiency.png> <./figs/scaling_results/strong/wall_time_vs_ranks.png> <./figs/scaling_results/strong/speedup_efficiency.png>] (./oral_exam_template.bbl) [11] (./oral_exam_template.aux)
 Package rerunfilecheck Info: File `oral_exam_template.out' has not changed.
 (rerunfilecheck)             Checksum: 6B95BE43BC7D051812A6541FBB8EBB0B;2651.
  ) 
 Here is how much of TeX's memory you used:
- 15939 strings out of 478994
- 232891 string characters out of 5858183
+ 15938 strings out of 478994
+ 232885 string characters out of 5858183
  597947 words of memory out of 5000000
- 33051 multiletter control sequences out of 15000+600000
- 417644 words of font info for 86 fonts, out of 8000000 for 9000
+ 33050 multiletter control sequences out of 15000+600000
+ 417344 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,18n,131p,3237b,571s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
-Output written on oral_exam_template.pdf (11 pages, 9418243 bytes).
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on oral_exam_template.pdf (11 pages, 9408672 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
- 273 compressed objects within 3 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 339 PDF objects out of 1000 (max. 8388607)
+ 271 compressed objects within 3 object streams
+ 83 named destinations out of 1000 (max. 500000)
  233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
